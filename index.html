@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Yebin Village</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- START SCREEN -->
+        
+        <section class="start-screen" id="start">
+            <h1>WELCOME TO</h1>
+            <h2>YEBIN VILLAGE</h2>
+
+            <p>Yebin's Personal Website</p>
+            
+            <button class="start-btn" onclick="enterVillage()">
+            ENTER VILLAGE
+            </button>
+
+        </section>
+
+        <!-- VILLAGE MAP -->
+
+        <section class="map-section" id="map">
+
+            <div class="map-container">
+            
+                <img src="images/village-map.png" class="map" alt="Yebin Village Map">
+                <a class="spot about" href="about.html" title="About Me">About</a>
+                <a class="spot photo" href="photos.html">Photo Studio</a>
+                <a class="spot music" href="music.html">Music Shop</a>
+                <a class="spot park" href="hobbies.html">Hobbies</a>
+                <a class="spot mailbox" href="contact.html">Contact</a>
+
+                <img src="images/character.png" class="character">
+
+            </div>
+        </section>
+
+        <script>
+            function enterVillage(){
+                document.getElementById("start").style.display="none";
+            
+                const map = document.getElementById("map");
+            
+                map.style.display="flex";
+            
+                setTimeout(()=>{
+                    map.classList.add("show");
+                 },50);
+
+                
+                }
+
+        </script>
+
+
+</body>
+</html>
