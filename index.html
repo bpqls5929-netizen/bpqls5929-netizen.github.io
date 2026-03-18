@@ -80,6 +80,13 @@
                 document.getElementById("map").style.display="none";
                 }
             
+                  // ⭐ 이거 추가
+                    window.onload = function(){
+                    if(window.location.hash === "#map"){
+                     document.getElementById("start").style.display="none";
+                        document.getElementById("map").style.display="flex";
+                    }
+                }
 
         </script>
 
