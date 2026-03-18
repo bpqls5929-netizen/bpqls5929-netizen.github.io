@@ -26,35 +26,60 @@
         <!-- VILLAGE MAP -->
 
         <section class="map-section" id="map">
-
-            <div class="map-container">
-            
-                <img src="images/village-map.png" class="map" alt="Yebin Village Map">
-                <a class="spot about" href="about.html" title="About Me">About</a>
-                <a class="spot photo" href="photos.html">Photo Studio</a>
-                <a class="spot music" href="music.html">Music Shop</a>
-                <a class="spot park" href="hobbies.html">Hobbies</a>
-                <a class="spot mailbox" href="contact.html">Contact</a>
+        
+            <div class="map-all">
+                <img src="images/village-map.png" alt="Yebin Village Map">
+                    <a class="spot-about" href="about.html" title="About Me">About Me</a>
+                    <a class="spot-photo" href="photos.html">Photo Studio</a>
+                    <a class="spot-music" href="music.html">Music Shop</a>
+                    <a class="spot-park" href="hobbies.html">Park(Hobbies)</a>
+                    <a class="spot-mailbox" href="contact.html">MailBox</a>
 
                 <img src="images/character.png" class="character">
+
+
+
+                <button class="back-btn-to-start" onclick="backtomain()">
+                <img src="images/EXIT.png" class="EXIT" alt="뒤로가기">
+                </button>
+                <button onclick="toggleSound(this)">
+                    <img src="images/soundon.png" class="soundoff" alt="소리설정">
+                </button>
+
+                <audio id="bgm" src="sounds/bgm.mp3" loop></audio>
 
             </div>
         </section>
 
         <script>
+            const audio = document.getElementById("bgm");
+            let started = false;
+
+            function toggleSound(button) {
+                const img = button.querySelector("img");
+
+                if (!started) {
+                    audio.muted = false;
+                    audio.play()
+                    started=true;
+                    img.src ="images/soundon.png";
+                    return;
+                }
+
+                audio.muted = !audio.muted;
+                img.src = audio.muted ? "images/soundoff.png" : "images/soundon.png";
+            }
+
             function enterVillage(){
                 document.getElementById("start").style.display="none";
-            
-                const map = document.getElementById("map");
-            
-                map.style.display="flex";
-            
-                setTimeout(()=>{
-                    map.classList.add("show");
-                 },50);
-
-                
+                document.getElementById("map").style.display="flex";
                 }
+            
+            function backtomain(){
+                document.getElementById("start").style.display="flex";
+                document.getElementById("map").style.display="none";
+                }
+            
 
         </script>
 
